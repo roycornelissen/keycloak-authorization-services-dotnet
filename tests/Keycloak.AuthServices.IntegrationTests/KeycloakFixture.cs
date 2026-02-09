@@ -2,7 +2,6 @@ namespace Keycloak.AuthServices.IntegrationTests;
 
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 using Testcontainers.Keycloak;
 
@@ -12,8 +11,7 @@ public class KeycloakFixture : IAsyncLifetime
     private const string AdminApiClientSecret = "k9LYTWKfbNOyfzFt2ZZsFl3Z4x4aAecf";
 
     public KeycloakContainer Keycloak { get; } =
-        new KeycloakBuilder()
-            .WithImage("quay.io/keycloak/keycloak:26.5.2")
+        new KeycloakBuilder("quay.io/keycloak/keycloak:26.5.2")
             .WithBindMount(
                 Path.Combine(Directory.GetCurrentDirectory(), "KeycloakConfiguration"),
                 "/opt/keycloak/data/import/"
