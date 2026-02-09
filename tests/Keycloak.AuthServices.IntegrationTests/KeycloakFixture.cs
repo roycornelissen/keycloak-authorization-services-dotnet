@@ -1,4 +1,4 @@
-﻿namespace Keycloak.AuthServices.IntegrationTests;
+namespace Keycloak.AuthServices.IntegrationTests;
 
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -13,7 +13,7 @@ public class KeycloakFixture : IAsyncLifetime
 
     public KeycloakContainer Keycloak { get; } =
         new KeycloakBuilder()
-            .WithImage("quay.io/keycloak/keycloak:26.4.2")
+            .WithImage("quay.io/keycloak/keycloak:26.5.2")
             .WithBindMount(
                 Path.Combine(Directory.GetCurrentDirectory(), "KeycloakConfiguration"),
                 "/opt/keycloak/data/import/"
